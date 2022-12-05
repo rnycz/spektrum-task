@@ -3,19 +3,13 @@ import "./Profile.css";
 import Header from "../Header/Header";
 import profileIcon from "../../assets/profileIcon.svg";
 import acceptIcon from "../../assets/acceptIcon.svg";
-import { useFetch, fetchData } from "../../hooks/useFetch";
-
-type useFetchType = {
-  data: fetchData[];
-  loading: boolean;
-  error: null;
-  makeApiCall: () => void;
-};
+import { useFetch } from "../../hooks/useFetch";
+import { UseFetchType } from "../../assets/types";
 
 export const Profile: React.FC = () => {
   const [peopleID, setPeopleID] = useState<number>(1);
-  const { data, loading, error, makeApiCall }: useFetchType = useFetch(
-    "https://swapi.dev/api/people/",
+  const { data, loading, error, makeApiCall }: UseFetchType = useFetch(
+    "https://swapi.py4e.com/api/people/",
     peopleID
   );
   useEffect(() => {

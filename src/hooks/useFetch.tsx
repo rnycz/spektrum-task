@@ -1,35 +1,35 @@
 import { useState } from "react";
-
-export type fetchData = {
-  name: string;
-  eye_color: string;
-  birth_year: string;
-};
+import { useStateContext } from "../contexts/ContextProvider";
+import { StarWarsData, FetchData, ContextState } from "../assets/types";
 
 export const useFetch = (url: string, id: number) => {
-  const [data, setData] = useState<fetchData[]>([]);
+  const { setStar_wars_data }: ContextState = useStateContext();
+  const [data, setData] = useState<FetchData[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<null>(null);
+  const [error, setError] = useState<string | any>();
 
-  const makeApiCall = (): void => {
-    fetch(url + id)
-      .then((response: Response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP error: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then((newData: fetchData) => {
-        setData([newData]);
-        setError(null);
-      })
-      .catch((err: any) => {
-        setError(err.message);
-        setData([]);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
+  const makeApiCall = async (): Promise<void> => {
+    try {
+      const response: Response = await fetch(url + id);
+      const json: FetchData = await response.json();
+      setLoading(false);
+      setError("");
+      setData([json]);
+      setStar_wars_data((current: StarWarsData[]) => [
+        ...current,
+        {
+          name: json.name,
+          created: json.created,
+          vehicles: json.vehicles,
+        },
+      ]);
+      if (response.status === 404) {
+        setError("Not Found");
+      }
+    } catch (error: any) {
+      setLoading(false);
+      setError(error);
+    }
   };
 
   return { loading, data, error, makeApiCall };

@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
 .form-container {
   width: 100%;
   max-width: 1130px;
@@ -5,15 +8,78 @@
   background-color: #ffffff;
   display: flex;
   form {
-    padding: 101px 174px 0 203px;
+    max-width: 752px;
+    margin: 0 auto;
     width: 100%;
+    padding: 101px 15px 15px 15px;
     display: flex;
     flex-direction: column;
+    label {
+      font-family: "Inter";
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 33px;
+      letter-spacing: 0em;
+      margin-top: 23px;
+    }
+    input {
+      padding: 15px 8px;
+      outline: none;
+      border: none;
+      border-bottom: 1.55px solid #000000;
+      font-size: 16px;
+    }
+    .rules {
+      margin-top: 30px;
+      display: flex;
+      align-items: center;
+      label {
+        margin: 0;
+        padding-left: 21px;
+        width: 60%;
+      }
+      input {
+        min-width: 30px;
+        height: 30px;
+      }
+      .validation-error {
+        text-align: left;
+        width: 100%;
+      }
+    }
+    .validation-error {
+      font-family: "Inter";
+      font-style: italic;
+      font-weight: 300;
+      font-size: 20px;
+      line-height: 165%;
+      color: #ff0000;
+      text-align: right;
+      padding-left: 10px;
+    }
+    button {
+      border: none;
+      height: 55px;
+      width: 224px;
+      background: #071594;
+      box-shadow: 10px 4px 4px rgba(0, 0, 0, 0.75);
+      border-radius: 20px;
+      margin: 19px auto;
+      font-family: "Lato";
+      font-style: italic;
+      font-weight: 400;
+      font-size: 30px;
+      line-height: 100%;
+      color: #ffffff;
+      -webkit-text-stroke: 1px #d9d9d9;
+      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      cursor: pointer;
+    }
     hr {
       width: 166.17px;
       height: 9.29px;
       background: #071594;
-      margin: 0 0 0 auto;
+      margin: 0 0 15px auto;
       border: none;
     }
     h3 {
@@ -26,6 +92,7 @@
       align-items: center;
       justify-content: flex-end;
       letter-spacing: 0.15em;
+      text-align: right;
       color: #000000;
       width: 100%;
     }

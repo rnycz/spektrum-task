@@ -16,13 +16,14 @@
     max-width: 800px;
     padding: 20px;
     background: rgba(54, 44, 44, 0.39);
-    box-shadow: 15px 0 5px -3px rgba(54, 44, 44, 0.7);
+    box-shadow: 13px 5px 5px -1px rgba(54, 44, 44, 0.7);
     backdrop-filter: blur(280px);
     border-radius: 500px 60px 300px 100px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-top: 20px;
     .profile-image {
       width: 70%;
       max-width: 534px;
